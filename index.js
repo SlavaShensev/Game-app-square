@@ -23,7 +23,7 @@ function startGame() {
         } else {
             $time.textContent = (time - 0.1).toFixed(1);
         }
-    }, 100);
+    }, 100);// test commit
 
     renderBox()
 }
