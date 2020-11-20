@@ -6,6 +6,9 @@ let $timeHeader = document.querySelector('#time-header');
 let $resultHeader = document.querySelector('#result-header');
 let $gameTime = document.querySelector('#game-time');
 
+let colors = ['#5E5F21', '#EF4F3D', '#A9BC9D', '#DDA2F9', '#81CFB8',
+                '#B91E40', '#61018C', '#3C6293', '#DDA2F9', '#D2C18F'];
+
 let score = 0;
 let isGameStarted = false;
 
@@ -31,7 +34,6 @@ function startGame() {
 
     let interval = setInterval(function () {
         let time = parseFloat($time.textContent);
-
 
         if (time <= 0) {
             clearInterval(interval);
@@ -88,11 +90,11 @@ function renderBox() {
     let gameSize = $game.getBoundingClientRect();
     let maxTop = gameSize.height - boxSize;
     let maxLeft = gameSize.width - boxSize;
-
+    let randomColorIndex = getRandom(0, colors.length);
 
     box.style.height = box.style.width = boxSize + 'px';
     box.style.position = 'absolute';
-    box.style.backgroundColor = '#000';
+    box.style.backgroundColor = colors[randomColorIndex];
     box.style.top = getRandom(0, maxTop) + 'px';
     box.style.left = getRandom(0, maxLeft) + 'px';
     box.style.cursor = 'pointer';
